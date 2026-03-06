@@ -1,0 +1,174 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Bricolage Grotesque";
+  src: url("/assets/fonts/BricolageGrotesque[opsz,wdth,wght].woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Outfit";
+  src: url("/assets/fonts/Outfit[wght].woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --radius: 0.75rem;
+
+    /* Core palette — vibrant indigo + coral + warm neutrals */
+    --background: 0.98 0.004 285;
+    --foreground: 0.18 0.04 280;
+
+    --card: 1 0 0;
+    --card-foreground: 0.18 0.04 280;
+
+    --popover: 1 0 0;
+    --popover-foreground: 0.18 0.04 280;
+
+    /* Vibrant indigo primary */
+    --primary: 0.52 0.22 280;
+    --primary-foreground: 0.99 0 0;
+
+    --secondary: 0.93 0.02 285;
+    --secondary-foreground: 0.28 0.06 280;
+
+    --muted: 0.94 0.01 285;
+    --muted-foreground: 0.55 0.04 280;
+
+    /* Coral accent */
+    --accent: 0.7 0.18 22;
+    --accent-foreground: 0.99 0 0;
+
+    --destructive: 0.58 0.24 27;
+    --destructive-foreground: 0.99 0 0;
+
+    --border: 0.88 0.02 285;
+    --input: 0.88 0.02 285;
+    --ring: 0.52 0.22 280;
+
+    /* Difficulty colors */
+    --easy: 0.64 0.19 145;
+    --easy-bg: 0.96 0.05 145;
+    --medium: 0.72 0.18 62;
+    --medium-bg: 0.97 0.05 80;
+    --hard: 0.58 0.22 22;
+    --hard-bg: 0.97 0.04 22;
+
+    /* Topic accent colors */
+    --topic-addition: 0.62 0.22 280;
+    --topic-subtraction: 0.62 0.22 22;
+    --topic-multiplication: 0.62 0.2 145;
+    --topic-division: 0.66 0.2 195;
+    --topic-fractions: 0.64 0.2 310;
+    --topic-algebra: 0.68 0.19 62;
+
+    /* Chart colors */
+    --chart-1: 0.52 0.22 280;
+    --chart-2: 0.7 0.18 22;
+    --chart-3: 0.64 0.19 145;
+    --chart-4: 0.66 0.2 195;
+    --chart-5: 0.64 0.2 310;
+
+    --sidebar: 0.98 0.004 285;
+    --sidebar-foreground: 0.18 0.04 280;
+    --sidebar-primary: 0.52 0.22 280;
+    --sidebar-primary-foreground: 0.99 0 0;
+    --sidebar-accent: 0.93 0.02 285;
+    --sidebar-accent-foreground: 0.28 0.06 280;
+    --sidebar-border: 0.88 0.02 285;
+    --sidebar-ring: 0.52 0.22 280;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body;
+    font-feature-settings: "liga" 1, "kern" 1;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: "Bricolage Grotesque", sans-serif;
+  }
+  .font-body {
+    font-family: "Outfit", sans-serif;
+  }
+}
+
+/* Difficulty badges */
+.badge-easy {
+  background-color: oklch(var(--easy-bg));
+  color: oklch(var(--easy));
+  border: 1px solid oklch(var(--easy) / 0.3);
+}
+
+.badge-medium {
+  background-color: oklch(var(--medium-bg));
+  color: oklch(var(--medium));
+  border: 1px solid oklch(var(--medium) / 0.3);
+}
+
+.badge-hard {
+  background-color: oklch(var(--hard-bg));
+  color: oklch(var(--hard));
+  border: 1px solid oklch(var(--hard) / 0.3);
+}
+
+/* Correct/Incorrect answer state */
+.answer-correct {
+  background-color: oklch(0.96 0.05 145);
+  border-color: oklch(0.64 0.19 145);
+  color: oklch(0.28 0.1 145);
+}
+
+.answer-incorrect {
+  background-color: oklch(0.97 0.04 22);
+  border-color: oklch(0.58 0.24 27);
+  color: oklch(0.3 0.12 22);
+}
+
+/* Topic card gradient accents */
+.topic-addition {
+  --topic-color: 0.62 0.22 280;
+}
+.topic-subtraction {
+  --topic-color: 0.62 0.22 22;
+}
+.topic-multiplication {
+  --topic-color: 0.62 0.2 145;
+}
+.topic-division {
+  --topic-color: 0.66 0.2 195;
+}
+.topic-fractions {
+  --topic-color: 0.64 0.2 310;
+}
+.topic-algebra {
+  --topic-color: 0.68 0.19 62;
+}
+
+/* Progress bar custom color */
+.progress-fill [data-state] {
+  background: oklch(var(--primary));
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Focus ring style */
+:focus-visible {
+  outline: 2px solid oklch(var(--ring));
+  outline-offset: 2px;
+}
